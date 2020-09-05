@@ -6,6 +6,7 @@
  *              --> Meting stabiliseren door instelbaar aantal metingen 3,4 of 5 doen en de gemiddelde waarde hievan te displayen --> Done
  *              --> versie 2.0b IPV parallel display, aansturing middels serieel
  * Versie 2.1: --> minium dept waarde aangepast (afstand tussen sensor- kiel 12 cm)
+ * Versie 2.2b: --> Serial print sentence aangepast zodat hij eenvoudiger te decoderen is in node-red. Hierdoor is waarschijnlijk omzetting naar Signal K niet nodig. Note Serial print speed staat op 115200
  *  To do: 
                 --> Signal K interfacing maken via USB poort
 */
@@ -136,7 +137,7 @@ void loop() {
     delay(50);  // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
   }
   dept = (deptsample/samplesperdisplay+mindept-mindistancekeelsensor); // Calculate the average dept valua including corrections of minium dept + distance sensor and keel
-  Serial.print("Gemiddeld diepte: ");
+  //Serial.print("Gemiddeld diepte: ");
   Serial.println(dept);
   delay(100);
 
